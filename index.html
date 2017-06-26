@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Google Map API sample</title>
+
+  <style>
+    #map {
+      width: 80%;
+      height: 500px;
+    }
+  </style>
+
+</head>
+<body>
+
+  <h1>Google Map Sample</h1>
+  <div id="map"></div>
+
+  <script>
+    function initMap() {
+
+      // map options
+      var mapOptions = {
+        zoom: 15,
+        center:{lat: -41.1703, lng: 174.8249}
+      }
+
+      var myMap = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    }
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyju6QNIwNh-VUQhy-7jWHIE9lLLLxLMs&callback=initMap">
+  </script>
+</body>
+</html>
