@@ -34,8 +34,20 @@
       // add marker
       var myMarker = new google.maps.Marker ({
         position: {lat: -41.1703, lng: 174.8249},
-        map: myMap
+        animation: google.maps.Animation.DROP,
+        map: myMap,
+        icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+      });
+
+      // info window
+      var infoWindow = new google.maps.InfoWindow({
+        content: '<h2>Tawa, Wellington</h2>'
+      });
+
+      myMarker.addListener('click', function(){
+        infoWindow.open(myMap, myMarker);
       })
+
     }
   </script>
   <script async defer
