@@ -31,6 +31,7 @@
       // new map
       var myMap = new google.maps.Map (document.getElementById('map'), mapOptions);
 
+/*
       // add marker
       var myMarker = new google.maps.Marker ({
         position: {lat: -41.1703, lng: 174.8249},
@@ -46,7 +47,20 @@
 
       myMarker.addListener('click', function(){
         infoWindow.open(myMap, myMarker);
-      })
+      });
+*/
+
+      // calling addMarker
+      addMarker({lat: -41.1703, lng: 174.8249});
+
+      // addMarker function
+      function addMarker(coords) {
+        var myMarker = new google.maps.Marker ({
+        position: coords,
+        map: myMap,
+        icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+        });
+      }
 
     }
   </script>
