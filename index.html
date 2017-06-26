@@ -25,11 +25,17 @@
       // map options
       var mapOptions = {
         zoom: 15,
-        center:{lat: -41.1703, lng: 174.8249}
+        center: {lat: -41.1703, lng: 174.8249}
       }
 
-      var myMap = new google.maps.Map(document.getElementById('map'), mapOptions);
+      // new map
+      var myMap = new google.maps.Map (document.getElementById('map'), mapOptions);
 
+      // add marker
+      var myMarker = new google.maps.Marker ({
+        position: {lat: -41.1703, lng: 174.8249},
+        map: myMap
+      })
     }
   </script>
   <script async defer
