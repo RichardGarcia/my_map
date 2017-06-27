@@ -25,7 +25,10 @@
       // map options
       var mapOptions = {
         zoom: 15,
-        center: {lat: -41.1703, lng: 174.8249}
+        center: {lat: -41.1703, lng: 174.8249},
+        disableDefaultUI: true,
+        draggable: false,
+        scrollwheel: false
       }
 
       // new map
@@ -51,17 +54,33 @@
 */
 
       // calling addMarker
-      addMarker({lat: -41.1694, lng: 174.8284}); // tawa station
-      addMarker({lat: -41.1744, lng: 174.8271}); // redwwod station 2
-      addMarker({lat: -41.1646, lng: 174.8292}); // tawa pool
+      // tawa station
+      addMarker({
+          coords: {lat: -41.1694, lng: 174.8284},
+        });
+      // redwwod station 2
+      addMarker({
+          coords: {lat: -41.1744, lng: 174.8271}
+        });
+      // tawa pool
+      addMarker({
+          coords: {lat: -41.1646, lng: 174.8292},
+          iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+        });
 
       // addMarker function
-      function addMarker(coords) {
+      function addMarker(props) {
         var myMarker = new google.maps.Marker ({
-        position: coords,
-        map: myMap,
-        icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+          map: myMap,
+          position: props.coords,
+          // icon: props.iconImage
         });
+        
+        // check for custom icon
+        if (props.iconImage){
+          // set icon image
+          myMarker.setIcon(props.iconImage);
+        }
       }
 
     }
